@@ -1,0 +1,42 @@
+{
+    "Концерты": {
+        "0": {
+            "name": "Абоба2",
+            "rate": 1,
+            "isFree": true,
+            "actors": [],
+            "date": "2025-05-09T10:38:35.083Z"
+        },
+        "1": {
+            "name": "",
+            "rate": 1,
+            "isFree": true,
+            "date": "2025-05-08T18:46:23.610Z",
+            "actors": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        "2": {
+            "name": "Абоба2",
+            "rate": 1,
+            "isFree": true,
+            "actors": [],
+            "date": "2025-05-09T10:39:15.949Z"
+        }
+    },
+    "Театры": {
+        "1": {
+            "name": "",
+            "averageCost": 15.6,
+            "isWork": false,
+            "dateOfCreating": "2025-05-08T18:46:23.610Z",
+            "concertList": [
+                "zolushka",
+                "lost heart",
+                "alone man"
+            ]
+        }
+    }
+}
