@@ -71,7 +71,22 @@ exports.addConcert = async (req, res, next) => {
 
 exports.changeConcert = async (req, res, next) => {
     try{
-        10 / 0;
+        const id = req.params.id;
+        const body = req.body;
+        const result = await isConcertBody(body);
+        if(result['status'] === 400){
+            res.status(400);
+            res.json(result['content'])
+        }else if(result['status'] === 200) {
+            const response = await changeConcert(id, body, next);
+            if(response['status'] === 200){
+                res.status(200);
+                res.json({"message": "Object concert successfully changed on database"});
+            }else{
+                res.status(response['status']);
+                res.json(response['content']);
+            }
+        }
     }catch(err){
         err.status(500);
         next(err);
@@ -80,7 +95,10 @@ exports.changeConcert = async (req, res, next) => {
 
 exports.updateConcert = async (req, res, next) => {
     try{
-        10 / 0;
+        const id = req.params.id;
+        let a = await updateConcert(id, next);
+        res.status(a['status']);
+        res.json(a['content'])
     }catch(err){
         err.status(500);
         next(err);
@@ -89,9 +107,12 @@ exports.updateConcert = async (req, res, next) => {
 
 exports.deleteConcert = async (req, res, next) => {
     try{
-        10 / 0;
+        const id = req.params.id;
+        const a = await deleteConcert(id, next);
+        res.status(a['status']);
+        res.json(a['content']);
     }catch(err){
-        err.status(500);
+        err.status = 500;
         next(err);
     }
 }
